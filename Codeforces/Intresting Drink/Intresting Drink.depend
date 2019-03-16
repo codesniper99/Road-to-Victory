@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1551536211 source:c:\users\akhil\desktop\road to victory\road-to-victory\codeforces\intresting drink\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

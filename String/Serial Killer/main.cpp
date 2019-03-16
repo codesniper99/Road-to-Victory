@@ -1,3 +1,4 @@
+//solvedddddddd :DDD
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
@@ -27,18 +28,34 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 int main()
 {
     ios::sync_with_stdio(0);
+    string a,b;
+    cin>>a>>b;
+    icm codeforces
+1
+codeforces technexll n;
+    cin>>n;
+    cout<<a<<" "<<b<<"\n";
+    REP(i,0,n)
+    {
+        string ans1,ans2;
+        cin>>ans1>>ans2;
 
-    ll n,v;
-    cin>>n>>v;
+        cout<<ans2<<" ";
+        if(a==ans1)
+            {
+                a=ans2;
+                cout<<b<<"\n";
+            }
+        else
+            {
+                b=ans2;
+                cout<<a<<"\n";
+                }
 
-    if(n-1<=v)
-        cout<<n-1<<'\n';
-    else{
-            ll x= n-1-v;
-        cout<< ((x+1)*(x+2))/2 -1+v<<"\n";
+
 
     }
-
+   // cout<<a<<" "<<b<<"\n";
 
 
     return 0;

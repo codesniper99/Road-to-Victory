@@ -27,18 +27,35 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 int main()
 {
     ios::sync_with_stdio(0);
+    string s;
+    cin>>s;
+    ll sym=-1,num=0;
+     ll len=s.size();
 
-    ll n,v;
-    cin>>n>>v;
+    REP(i,0,len)
+    {
+        if(s[i]-'a'>sym)
+        {
+            sym=s[i]-'a';
+            num=1;
 
-    if(n-1<=v)
-        cout<<n-1<<'\n';
-    else{
-            ll x= n-1-v;
-        cout<< ((x+1)*(x+2))/2 -1+v<<"\n";
+        }
+        else if(s[i]-'a'==sym)
+        {
+            num++;
+        }
+        else;
 
     }
+    string ans;
+    ans.clear();
+    REP(i,0,num)
+    {
+        char t = char('a'+sym);
+        ans+=t;
+    }
 
+    cout<<ans;
 
 
     return 0;

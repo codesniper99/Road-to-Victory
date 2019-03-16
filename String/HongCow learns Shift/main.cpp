@@ -1,3 +1,4 @@
+//solvedd
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
@@ -27,19 +28,23 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 int main()
 {
     ios::sync_with_stdio(0);
+    string s;
+    cin>>s;
+    ll len=s.size();
+    ll ans=0;
+    string initial=s;
+    REP(i,0,len)
+    {
 
-    ll n,v;
-    cin>>n>>v;
-
-    if(n-1<=v)
-        cout<<n-1<<'\n';
-    else{
-            ll x= n-1-v;
-        cout<< ((x+1)*(x+2))/2 -1+v<<"\n";
-
+        reverse(s.begin(),s.begin()+1);
+        reverse(s.begin()+1,s.end());
+        reverse(s.begin(),s.end());
+        if(s==initial)
+            break;
+        else
+            ans++;
     }
 
-
-
+    cout<<ans+1<<"\n";
     return 0;
 }
