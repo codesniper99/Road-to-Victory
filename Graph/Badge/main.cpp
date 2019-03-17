@@ -1,4 +1,3 @@
-//soolved
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
@@ -28,35 +27,41 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 int main()
 {
     ios::sync_with_stdio(0);
-    string s;
-    cin>>s;
-    ll sym=-1,num=0;
-     ll len=s.size();
+    ll n;
+    cin>>n;
+    vi a(n);
+    REP(i,0,n)
+        cin>>a[i];
 
-    REP(i,0,len)
+
+    //cout<<"wow";
+    REP(i,0,n)
     {
-        if(s[i]-'a'>sym)
+
+        vector<ll> visited(n,0);
+        ll pos=i;
+        visited[i]++;
+
+        ll next = a[i]-1;
+        while(1)
         {
-            sym=s[i]-'a';
-            num=1;
+            if(visited[pos]>=2)
+            {
+                break;
+            }
+            else
+            {
+                pos=next;
+                visited[pos]++;
+                next = a[next]-1;
+
+            }
 
         }
-        else if(s[i]-'a'==sym)
-        {
-            num++;
-        }
-        else;
+        cout<<pos+1<<" ";
 
     }
-    string ans;
-    ans.clear();
-    REP(i,0,num)
-    {
-        char t = char('a'+sym);
-        ans+=t;
-    }
 
-    cout<<ans;
 
 
     return 0;
