@@ -24,49 +24,52 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define MOD 1000000007
 
 
+bool isValid(ll row, ll col, ll board[50][50],ll rowmax,ll colmax)
+{
+    return ((row >= 0) && (row < rowmax) &&
+           (col >= 0) && (col < colmax) && (board[row][col]==0) );
+}
+
 int main()
 {
     ios::sync_with_stdio(0);
-    ll n;
-    cin>>n;
-    ll m;
-    cin>>m;
-    map<ll,ll> mapper;
-    mapper.clear();
+    ll n,k;
+    cin>>n>>k;
     vi a(n);
     REP(i,0,n)
-        {
-            cin>>a[i];
-            mapper[a[i]]++;
-        }
-    vi distinct(n);
-    distinct.clear();
-    ll start=0;
-    for(std::map<ll,ll>::iterator j =mapper.begin();j!=mapper.end();j++)
     {
-        start++;
+        cin>>a[i];
     }
-    distinct[0]=start;
-    vi bias(n,0);
-    bias[0]=start;
-    REP(i,1,n)
+    if(n==1)
     {
-        mapper[a[i]]--;
-        if(mapper[a[i]]==0)
-            {distinct[i]=distinct[i-1]-1;bias[i]=distinct[i]+1;}
-        else
-            {distinct[i]=distinct[i-1];bias[i]=distinct[i];}
-
+           cout<<"0\n"<<a[0];
     }
+    else
+    {
+        ll sum=a[0]+a[1];
+        vi ans(n,0);
+        ll total=0;
+        ans[0]=a[0];
 
-    vi in(m);
-    REP(i,0,m)
+        REP(i,1,n)
         {
-            ll x;
-            cin>>x;
-            cout<<bias[x-1]<<"\n";
+            ans[i]=a[i];
+            sum=ans[i]+ans[i-1];
+            if(sum<k)
+            {
+                ans[i]+=k-sum;
+                total+=k-sum;
+            }
         }
 
+        cout<<total<<"\n";
+
+        REP(i,0,n)
+        {
+            cout<<ans[i]<<" ";
+        }
+
+    }
 
 
 
